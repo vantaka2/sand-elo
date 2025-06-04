@@ -13,9 +13,13 @@ const nextConfig: NextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-  // Exclude Supabase Edge Functions from Next.js compilation
+  // Fix webpack handling of @supabase packages
   webpack: (config) => {
-    config.externals = [...(config.externals || []), /supabase\/functions/]
+    // Mark @supabase/functions-js as external since we don't use Edge Functions
+    config.externals = [
+      ...(config.externals || []),
+      '@supabase/functions-js'
+    ]
     return config
   },
 }
