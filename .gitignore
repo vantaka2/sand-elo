@@ -62,3 +62,4 @@ Thumbs.db
 cbva-scraper/log/*
 cbva-scraper/__pycache__/*
 rating-calculator/__pycache__/*
+cbva-scraper/data/*
