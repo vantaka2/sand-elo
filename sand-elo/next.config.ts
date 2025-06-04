@@ -15,11 +15,11 @@ const nextConfig: NextConfig = {
   },
   // Fix webpack handling of @supabase packages
   webpack: (config) => {
-    // Mark @supabase/functions-js as external since we don't use Edge Functions
-    config.externals = [
-      ...(config.externals || []),
-      '@supabase/functions-js'
-    ]
+    // Create an alias to stub out the problematic @supabase/functions-js module
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@supabase/functions-js': false
+    }
     return config
   },
 }
