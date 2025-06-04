@@ -1,0 +1,458 @@
+2025-06-03 19:16:00,238 - INFO - 🏐 Rating Calculator initialized
+2025-06-03 19:16:00,238 - INFO - 📊 Batch size: 50
+2025-06-03 19:16:00,238 - INFO - ⏱️  Delay between batches: 0.01s
+2025-06-03 19:16:00,238 - INFO - 📅 Rating half-life: 365 days
+2025-06-03 19:16:00,238 - INFO - ⚖️  Minimum time weight: 0.1
+2025-06-03 19:16:00,619 - INFO - 🚀 Starting iterative rating calculation with 10 passes...
+2025-06-03 19:16:00,619 - INFO - 📊 Fetching all matches using pagination...
+2025-06-03 19:16:00,646 - INFO -    Retrieved page with 1000 matches (total: 1000)
+2025-06-03 19:16:00,671 - INFO -    Retrieved page with 1000 matches (total: 2000)
+2025-06-03 19:16:00,699 - INFO -    Retrieved page with 1000 matches (total: 3000)
+2025-06-03 19:16:00,725 - INFO -    Retrieved page with 1000 matches (total: 4000)
+2025-06-03 19:16:00,756 - INFO -    Retrieved page with 1000 matches (total: 5000)
+2025-06-03 19:16:00,781 - INFO -    Retrieved page with 1000 matches (total: 6000)
+2025-06-03 19:16:00,809 - INFO -    Retrieved page with 1000 matches (total: 7000)
+2025-06-03 19:16:00,837 - INFO -    Retrieved page with 1000 matches (total: 8000)
+2025-06-03 19:16:00,868 - INFO -    Retrieved page with 1000 matches (total: 9000)
+2025-06-03 19:16:00,894 - INFO -    Retrieved page with 1000 matches (total: 10000)
+2025-06-03 19:16:00,920 - INFO -    Retrieved page with 1000 matches (total: 11000)
+2025-06-03 19:16:00,950 - INFO -    Retrieved page with 1000 matches (total: 12000)
+2025-06-03 19:16:00,975 - INFO -    Retrieved page with 1000 matches (total: 13000)
+2025-06-03 19:16:00,998 - INFO -    Retrieved page with 784 matches (total: 13784)
+2025-06-03 19:16:00,998 - INFO - 📊 Retrieved 13784 total matches from database
+2025-06-03 19:16:00,998 - INFO - 📊 Retrieved 13784 total matches
+2025-06-03 19:16:00,998 - INFO - 📊 Fetching all player ratings using pagination...
+2025-06-03 19:16:01,013 - INFO -    Retrieved page with 1000 players (total: 1000)
+2025-06-03 19:16:01,030 - INFO -    Retrieved page with 1000 players (total: 2000)
+2025-06-03 19:16:01,045 - INFO -    Retrieved page with 1000 players (total: 3000)
+2025-06-03 19:16:01,056 - INFO -    Retrieved page with 770 players (total: 3770)
+2025-06-03 19:16:01,056 - INFO - 📊 Retrieved 3770 total active players from database
+2025-06-03 19:16:01,064 - INFO - 📊 Found 13784 valid matches with all players in system
+2025-06-03 19:16:01,065 - INFO - ⚠️  Skipping 0 matches with missing players
+2025-06-03 19:16:01,065 - INFO - ⏰ Using time weighting with 365-day half-life from 2025-06-04
+2025-06-03 19:16:01,065 - INFO - 📊 Example time weights:
+2025-06-03 19:16:01,065 - INFO -    • 7 days ago: 0.987 weight
+2025-06-03 19:16:01,065 - INFO -    • 30 days ago: 0.945 weight
+2025-06-03 19:16:01,065 - INFO -    • 90 days ago: 0.843 weight
+2025-06-03 19:16:01,065 - INFO -    • 180 days ago: 0.710 weight
+2025-06-03 19:16:01,065 - INFO -    • 365 days ago: 0.500 weight
+2025-06-03 19:16:01,065 - INFO - 
+🔄 PASS 1/10 starting...
+2025-06-03 19:16:01,074 - INFO -    Pass 1 progress: 1000/13784 (7.3%)
+2025-06-03 19:16:01,081 - INFO -    Pass 1 progress: 2000/13784 (14.5%)
+2025-06-03 19:16:01,090 - INFO -    Pass 1 progress: 3000/13784 (21.8%)
+2025-06-03 19:16:01,098 - INFO -    Pass 1 progress: 4000/13784 (29.0%)
+2025-06-03 19:16:01,106 - INFO -    Pass 1 progress: 5000/13784 (36.3%)
+2025-06-03 19:16:01,113 - INFO -    Pass 1 progress: 6000/13784 (43.5%)
+2025-06-03 19:16:01,121 - INFO -    Pass 1 progress: 7000/13784 (50.8%)
+2025-06-03 19:16:01,128 - INFO -    Pass 1 progress: 8000/13784 (58.0%)
+2025-06-03 19:16:01,136 - INFO -    Pass 1 progress: 9000/13784 (65.3%)
+2025-06-03 19:16:01,143 - INFO -    Pass 1 progress: 10000/13784 (72.5%)
+2025-06-03 19:16:01,151 - INFO -    Pass 1 progress: 11000/13784 (79.8%)
+2025-06-03 19:16:01,159 - INFO -    Pass 1 progress: 12000/13784 (87.1%)
+2025-06-03 19:16:01,167 - INFO -    Pass 1 progress: 13000/13784 (94.3%)
+2025-06-03 19:16:01,173 - INFO - ✅ Pass 1 complete: 13784 matches processed, 0 errors
+2025-06-03 19:16:01,173 - INFO - 
+🔄 PASS 2/10 starting...
+2025-06-03 19:16:01,182 - INFO -    Pass 2 progress: 1000/13784 (7.3%)
+2025-06-03 19:16:01,190 - INFO -    Pass 2 progress: 2000/13784 (14.5%)
+2025-06-03 19:16:01,198 - INFO -    Pass 2 progress: 3000/13784 (21.8%)
+2025-06-03 19:16:01,205 - INFO -    Pass 2 progress: 4000/13784 (29.0%)
+2025-06-03 19:16:01,213 - INFO -    Pass 2 progress: 5000/13784 (36.3%)
+2025-06-03 19:16:01,221 - INFO -    Pass 2 progress: 6000/13784 (43.5%)
+2025-06-03 19:16:01,229 - INFO -    Pass 2 progress: 7000/13784 (50.8%)
+2025-06-03 19:16:01,236 - INFO -    Pass 2 progress: 8000/13784 (58.0%)
+2025-06-03 19:16:01,244 - INFO -    Pass 2 progress: 9000/13784 (65.3%)
+2025-06-03 19:16:01,252 - INFO -    Pass 2 progress: 10000/13784 (72.5%)
+2025-06-03 19:16:01,260 - INFO -    Pass 2 progress: 11000/13784 (79.8%)
+2025-06-03 19:16:01,268 - INFO -    Pass 2 progress: 12000/13784 (87.1%)
+2025-06-03 19:16:01,276 - INFO -    Pass 2 progress: 13000/13784 (94.3%)
+2025-06-03 19:16:01,282 - INFO - ✅ Pass 2 complete: 13784 matches processed, 0 errors
+2025-06-03 19:16:01,282 - INFO - 
+🔄 PASS 3/10 starting...
+2025-06-03 19:16:01,297 - INFO -    Pass 3 progress: 1000/13784 (7.3%)
+2025-06-03 19:16:01,349 - INFO -    Pass 3 progress: 2000/13784 (14.5%)
+2025-06-03 19:16:01,365 - INFO -    Pass 3 progress: 3000/13784 (21.8%)
+2025-06-03 19:16:01,372 - INFO -    Pass 3 progress: 4000/13784 (29.0%)
+2025-06-03 19:16:01,380 - INFO -    Pass 3 progress: 5000/13784 (36.3%)
+2025-06-03 19:16:01,387 - INFO -    Pass 3 progress: 6000/13784 (43.5%)
+2025-06-03 19:16:01,395 - INFO -    Pass 3 progress: 7000/13784 (50.8%)
+2025-06-03 19:16:01,402 - INFO -    Pass 3 progress: 8000/13784 (58.0%)
+2025-06-03 19:16:01,410 - INFO -    Pass 3 progress: 9000/13784 (65.3%)
+2025-06-03 19:16:01,418 - INFO -    Pass 3 progress: 10000/13784 (72.5%)
+2025-06-03 19:16:01,425 - INFO -    Pass 3 progress: 11000/13784 (79.8%)
+2025-06-03 19:16:01,433 - INFO -    Pass 3 progress: 12000/13784 (87.1%)
+2025-06-03 19:16:01,440 - INFO -    Pass 3 progress: 13000/13784 (94.3%)
+2025-06-03 19:16:01,446 - INFO - ✅ Pass 3 complete: 13784 matches processed, 0 errors
+2025-06-03 19:16:01,446 - INFO - 
+🔄 PASS 4/10 starting...
+2025-06-03 19:16:01,454 - INFO -    Pass 4 progress: 1000/13784 (7.3%)
+2025-06-03 19:16:01,462 - INFO -    Pass 4 progress: 2000/13784 (14.5%)
+2025-06-03 19:16:01,469 - INFO -    Pass 4 progress: 3000/13784 (21.8%)
+2025-06-03 19:16:01,476 - INFO -    Pass 4 progress: 4000/13784 (29.0%)
+2025-06-03 19:16:01,484 - INFO -    Pass 4 progress: 5000/13784 (36.3%)
+2025-06-03 19:16:01,492 - INFO -    Pass 4 progress: 6000/13784 (43.5%)
+2025-06-03 19:16:01,499 - INFO -    Pass 4 progress: 7000/13784 (50.8%)
+2025-06-03 19:16:01,507 - INFO -    Pass 4 progress: 8000/13784 (58.0%)
+2025-06-03 19:16:01,515 - INFO -    Pass 4 progress: 9000/13784 (65.3%)
+2025-06-03 19:16:01,522 - INFO -    Pass 4 progress: 10000/13784 (72.5%)
+2025-06-03 19:16:01,530 - INFO -    Pass 4 progress: 11000/13784 (79.8%)
+2025-06-03 19:16:01,537 - INFO -    Pass 4 progress: 12000/13784 (87.1%)
+2025-06-03 19:16:01,544 - INFO -    Pass 4 progress: 13000/13784 (94.3%)
+2025-06-03 19:16:01,550 - INFO - ✅ Pass 4 complete: 13784 matches processed, 0 errors
+2025-06-03 19:16:01,550 - INFO - 
+🔄 PASS 5/10 starting...
+2025-06-03 19:16:01,558 - INFO -    Pass 5 progress: 1000/13784 (7.3%)
+2025-06-03 19:16:01,565 - INFO -    Pass 5 progress: 2000/13784 (14.5%)
+2025-06-03 19:16:01,573 - INFO -    Pass 5 progress: 3000/13784 (21.8%)
+2025-06-03 19:16:01,580 - INFO -    Pass 5 progress: 4000/13784 (29.0%)
+2025-06-03 19:16:01,588 - INFO -    Pass 5 progress: 5000/13784 (36.3%)
+2025-06-03 19:16:01,595 - INFO -    Pass 5 progress: 6000/13784 (43.5%)
+2025-06-03 19:16:01,603 - INFO -    Pass 5 progress: 7000/13784 (50.8%)
+2025-06-03 19:16:01,610 - INFO -    Pass 5 progress: 8000/13784 (58.0%)
+2025-06-03 19:16:01,618 - INFO -    Pass 5 progress: 9000/13784 (65.3%)
+2025-06-03 19:16:01,626 - INFO -    Pass 5 progress: 10000/13784 (72.5%)
+2025-06-03 19:16:01,633 - INFO -    Pass 5 progress: 11000/13784 (79.8%)
+2025-06-03 19:16:01,641 - INFO -    Pass 5 progress: 12000/13784 (87.1%)
+2025-06-03 19:16:01,648 - INFO -    Pass 5 progress: 13000/13784 (94.3%)
+2025-06-03 19:16:01,654 - INFO - ✅ Pass 5 complete: 13784 matches processed, 0 errors
+2025-06-03 19:16:01,654 - INFO - 
+🔄 PASS 6/10 starting...
+2025-06-03 19:16:01,662 - INFO -    Pass 6 progress: 1000/13784 (7.3%)
+2025-06-03 19:16:01,670 - INFO -    Pass 6 progress: 2000/13784 (14.5%)
+2025-06-03 19:16:01,678 - INFO -    Pass 6 progress: 3000/13784 (21.8%)
+2025-06-03 19:16:01,685 - INFO -    Pass 6 progress: 4000/13784 (29.0%)
+2025-06-03 19:16:01,693 - INFO -    Pass 6 progress: 5000/13784 (36.3%)
+2025-06-03 19:16:01,700 - INFO -    Pass 6 progress: 6000/13784 (43.5%)
+2025-06-03 19:16:01,708 - INFO -    Pass 6 progress: 7000/13784 (50.8%)
+2025-06-03 19:16:01,715 - INFO -    Pass 6 progress: 8000/13784 (58.0%)
+2025-06-03 19:16:01,723 - INFO -    Pass 6 progress: 9000/13784 (65.3%)
+2025-06-03 19:16:01,730 - INFO -    Pass 6 progress: 10000/13784 (72.5%)
+2025-06-03 19:16:01,738 - INFO -    Pass 6 progress: 11000/13784 (79.8%)
+2025-06-03 19:16:01,746 - INFO -    Pass 6 progress: 12000/13784 (87.1%)
+2025-06-03 19:16:01,753 - INFO -    Pass 6 progress: 13000/13784 (94.3%)
+2025-06-03 19:16:01,759 - INFO - ✅ Pass 6 complete: 13784 matches processed, 0 errors
+2025-06-03 19:16:01,759 - INFO - 
+🔄 PASS 7/10 starting...
+2025-06-03 19:16:01,767 - INFO -    Pass 7 progress: 1000/13784 (7.3%)
+2025-06-03 19:16:01,774 - INFO -    Pass 7 progress: 2000/13784 (14.5%)
+2025-06-03 19:16:01,782 - INFO -    Pass 7 progress: 3000/13784 (21.8%)
+2025-06-03 19:16:01,789 - INFO -    Pass 7 progress: 4000/13784 (29.0%)
+2025-06-03 19:16:01,796 - INFO -    Pass 7 progress: 5000/13784 (36.3%)
+2025-06-03 19:16:01,804 - INFO -    Pass 7 progress: 6000/13784 (43.5%)
+2025-06-03 19:16:01,811 - INFO -    Pass 7 progress: 7000/13784 (50.8%)
+2025-06-03 19:16:01,818 - INFO -    Pass 7 progress: 8000/13784 (58.0%)
+2025-06-03 19:16:01,826 - INFO -    Pass 7 progress: 9000/13784 (65.3%)
+2025-06-03 19:16:01,833 - INFO -    Pass 7 progress: 10000/13784 (72.5%)
+2025-06-03 19:16:01,841 - INFO -    Pass 7 progress: 11000/13784 (79.8%)
+2025-06-03 19:16:01,848 - INFO -    Pass 7 progress: 12000/13784 (87.1%)
+2025-06-03 19:16:01,856 - INFO -    Pass 7 progress: 13000/13784 (94.3%)
+2025-06-03 19:16:01,862 - INFO - ✅ Pass 7 complete: 13784 matches processed, 0 errors
+2025-06-03 19:16:01,862 - INFO - 
+🔄 PASS 8/10 starting...
+2025-06-03 19:16:01,870 - INFO -    Pass 8 progress: 1000/13784 (7.3%)
+2025-06-03 19:16:01,878 - INFO -    Pass 8 progress: 2000/13784 (14.5%)
+2025-06-03 19:16:01,885 - INFO -    Pass 8 progress: 3000/13784 (21.8%)
+2025-06-03 19:16:01,893 - INFO -    Pass 8 progress: 4000/13784 (29.0%)
+2025-06-03 19:16:01,900 - INFO -    Pass 8 progress: 5000/13784 (36.3%)
+2025-06-03 19:16:01,908 - INFO -    Pass 8 progress: 6000/13784 (43.5%)
+2025-06-03 19:16:01,915 - INFO -    Pass 8 progress: 7000/13784 (50.8%)
+2025-06-03 19:16:01,923 - INFO -    Pass 8 progress: 8000/13784 (58.0%)
+2025-06-03 19:16:01,930 - INFO -    Pass 8 progress: 9000/13784 (65.3%)
+2025-06-03 19:16:01,937 - INFO -    Pass 8 progress: 10000/13784 (72.5%)
+2025-06-03 19:16:01,945 - INFO -    Pass 8 progress: 11000/13784 (79.8%)
+2025-06-03 19:16:01,953 - INFO -    Pass 8 progress: 12000/13784 (87.1%)
+2025-06-03 19:16:01,960 - INFO -    Pass 8 progress: 13000/13784 (94.3%)
+2025-06-03 19:16:01,966 - INFO - ✅ Pass 8 complete: 13784 matches processed, 0 errors
+2025-06-03 19:16:01,966 - INFO - 
+🔄 PASS 9/10 starting...
+2025-06-03 19:16:01,974 - INFO -    Pass 9 progress: 1000/13784 (7.3%)
+2025-06-03 19:16:01,982 - INFO -    Pass 9 progress: 2000/13784 (14.5%)
+2025-06-03 19:16:01,989 - INFO -    Pass 9 progress: 3000/13784 (21.8%)
+2025-06-03 19:16:01,997 - INFO -    Pass 9 progress: 4000/13784 (29.0%)
+2025-06-03 19:16:02,004 - INFO -    Pass 9 progress: 5000/13784 (36.3%)
+2025-06-03 19:16:02,012 - INFO -    Pass 9 progress: 6000/13784 (43.5%)
+2025-06-03 19:16:02,019 - INFO -    Pass 9 progress: 7000/13784 (50.8%)
+2025-06-03 19:16:02,027 - INFO -    Pass 9 progress: 8000/13784 (58.0%)
+2025-06-03 19:16:02,034 - INFO -    Pass 9 progress: 9000/13784 (65.3%)
+2025-06-03 19:16:02,042 - INFO -    Pass 9 progress: 10000/13784 (72.5%)
+2025-06-03 19:16:02,049 - INFO -    Pass 9 progress: 11000/13784 (79.8%)
+2025-06-03 19:16:02,057 - INFO -    Pass 9 progress: 12000/13784 (87.1%)
+2025-06-03 19:16:02,065 - INFO -    Pass 9 progress: 13000/13784 (94.3%)
+2025-06-03 19:16:02,071 - INFO - ✅ Pass 9 complete: 13784 matches processed, 0 errors
+2025-06-03 19:16:02,071 - INFO - 
+🔄 PASS 10/10 starting...
+2025-06-03 19:16:02,079 - INFO -    Pass 10 progress: 1000/13784 (7.3%)
+2025-06-03 19:16:02,087 - INFO -    Pass 10 progress: 2000/13784 (14.5%)
+2025-06-03 19:16:02,094 - INFO -    Pass 10 progress: 3000/13784 (21.8%)
+2025-06-03 19:16:02,101 - INFO -    Pass 10 progress: 4000/13784 (29.0%)
+2025-06-03 19:16:02,109 - INFO -    Pass 10 progress: 5000/13784 (36.3%)
+2025-06-03 19:16:02,116 - INFO -    Pass 10 progress: 6000/13784 (43.5%)
+2025-06-03 19:16:02,124 - INFO -    Pass 10 progress: 7000/13784 (50.8%)
+2025-06-03 19:16:02,131 - INFO -    Pass 10 progress: 8000/13784 (58.0%)
+2025-06-03 19:16:02,139 - INFO -    Pass 10 progress: 9000/13784 (65.3%)
+2025-06-03 19:16:02,146 - INFO -    Pass 10 progress: 10000/13784 (72.5%)
+2025-06-03 19:16:02,154 - INFO -    Pass 10 progress: 11000/13784 (79.8%)
+2025-06-03 19:16:02,161 - INFO -    Pass 10 progress: 12000/13784 (87.1%)
+2025-06-03 19:16:02,168 - INFO -    Pass 10 progress: 13000/13784 (94.3%)
+2025-06-03 19:16:02,174 - INFO - ✅ Pass 10 complete: 13784 matches processed, 0 errors
+2025-06-03 19:16:02,174 - INFO - 
+💾 Saving final ratings to database...
+2025-06-03 19:16:02,174 - INFO - 💾 Updating all player ratings in database...
+2025-06-03 19:16:02,177 - INFO - 💾 Saving ratings to calculated_ratings.csv...
+2025-06-03 19:16:02,517 - INFO - ✅ Saved 3770 ratings to calculated_ratings.csv
+2025-06-03 19:16:02,517 - INFO - 🔍 Testing database updates with 5 sample players...
+2025-06-03 19:16:02,517 - INFO -    Updating d6562d8f-a2cf-4327-8098-298d69353b66: mens=1500, womens=1500
+2025-06-03 19:16:02,531 - INFO -    ✅ Successfully updated d6562d8f-a2cf-4327-8098-298d69353b66
+2025-06-03 19:16:02,531 - INFO -    Updating a032a6d3-8d87-4c66-8048-3e74b08b6468: mens=1500, womens=1653
+2025-06-03 19:16:02,542 - INFO -    ✅ Successfully updated a032a6d3-8d87-4c66-8048-3e74b08b6468
+2025-06-03 19:16:02,543 - INFO -    Updating 06dc7838-f384-4fb9-ab22-60693eb1cfe9: mens=1500, womens=1653
+2025-06-03 19:16:02,554 - INFO -    ✅ Successfully updated 06dc7838-f384-4fb9-ab22-60693eb1cfe9
+2025-06-03 19:16:02,554 - INFO -    Updating 7f2e1f10-2abe-4c3f-97b3-d7446bcf9cfe: mens=1500, womens=1370
+2025-06-03 19:16:02,565 - INFO -    ✅ Successfully updated 7f2e1f10-2abe-4c3f-97b3-d7446bcf9cfe
+2025-06-03 19:16:02,565 - INFO -    Updating 85da1844-f9a7-499f-b381-67af60a66f31: mens=1500, womens=1553
+2025-06-03 19:16:02,576 - INFO -    ✅ Successfully updated 85da1844-f9a7-499f-b381-67af60a66f31
+2025-06-03 19:16:02,576 - INFO - 🧪 Sample update test: 5/5 successful
+2025-06-03 19:16:02,577 - INFO - 💾 Proceeding with full database update...
+2025-06-03 19:16:51,790 - INFO - ✅ Database update complete: 3770 success, 0 errors
+2025-06-03 19:16:51,790 - INFO - 
+📈 Pass Summary:
+2025-06-03 19:16:51,790 - INFO -    Pass 1: 13784 matches processed, 0 errors
+2025-06-03 19:16:51,790 - INFO -    Pass 2: 13784 matches processed, 0 errors
+2025-06-03 19:16:51,790 - INFO -    Pass 3: 13784 matches processed, 0 errors
+2025-06-03 19:16:51,790 - INFO -    Pass 4: 13784 matches processed, 0 errors
+2025-06-03 19:16:51,790 - INFO -    Pass 5: 13784 matches processed, 0 errors
+2025-06-03 19:16:51,790 - INFO -    Pass 6: 13784 matches processed, 0 errors
+2025-06-03 19:16:51,791 - INFO -    Pass 7: 13784 matches processed, 0 errors
+2025-06-03 19:16:51,791 - INFO -    Pass 8: 13784 matches processed, 0 errors
+2025-06-03 19:16:51,791 - INFO -    Pass 9: 13784 matches processed, 0 errors
+2025-06-03 19:16:51,791 - INFO -    Pass 10: 13784 matches processed, 0 errors
+2025-06-03 19:25:55,356 - INFO - 🏐 Rating Calculator initialized
+2025-06-03 19:25:55,356 - INFO - 📊 Batch size: 50
+2025-06-03 19:25:55,356 - INFO - ⏱️  Delay between batches: 0.01s
+2025-06-03 19:25:55,356 - INFO - 📅 Rating half-life: 365 days
+2025-06-03 19:25:55,356 - INFO - ⚖️  Minimum time weight: 0.1
+2025-06-03 19:25:55,740 - INFO - 🚀 Starting iterative rating calculation with 10 passes...
+2025-06-03 19:25:55,740 - INFO - 📊 Fetching all matches using pagination...
+2025-06-03 19:25:55,763 - INFO -    Retrieved page with 1000 matches (total: 1000)
+2025-06-03 19:25:55,789 - INFO -    Retrieved page with 1000 matches (total: 2000)
+2025-06-03 19:25:55,812 - INFO -    Retrieved page with 1000 matches (total: 3000)
+2025-06-03 19:25:55,840 - INFO -    Retrieved page with 1000 matches (total: 4000)
+2025-06-03 19:25:55,863 - INFO -    Retrieved page with 1000 matches (total: 5000)
+2025-06-03 19:25:55,889 - INFO -    Retrieved page with 1000 matches (total: 6000)
+2025-06-03 19:25:55,914 - INFO -    Retrieved page with 1000 matches (total: 7000)
+2025-06-03 19:25:55,939 - INFO -    Retrieved page with 1000 matches (total: 8000)
+2025-06-03 19:25:55,971 - INFO -    Retrieved page with 1000 matches (total: 9000)
+2025-06-03 19:25:55,994 - INFO -    Retrieved page with 1000 matches (total: 10000)
+2025-06-03 19:25:56,020 - INFO -    Retrieved page with 1000 matches (total: 11000)
+2025-06-03 19:25:56,043 - INFO -    Retrieved page with 1000 matches (total: 12000)
+2025-06-03 19:25:56,071 - INFO -    Retrieved page with 1000 matches (total: 13000)
+2025-06-03 19:25:56,097 - INFO -    Retrieved page with 784 matches (total: 13784)
+2025-06-03 19:25:56,097 - INFO - 📊 Retrieved 13784 total matches from database
+2025-06-03 19:25:56,097 - INFO - 📊 Retrieved 13784 total matches
+2025-06-03 19:25:56,097 - INFO - 📊 Fetching all player ratings using pagination...
+2025-06-03 19:25:56,112 - INFO -    Retrieved page with 1000 players (total: 1000)
+2025-06-03 19:25:56,130 - INFO -    Retrieved page with 1000 players (total: 2000)
+2025-06-03 19:25:56,144 - INFO -    Retrieved page with 1000 players (total: 3000)
+2025-06-03 19:25:56,156 - INFO -    Retrieved page with 769 players (total: 3769)
+2025-06-03 19:25:56,156 - INFO - 📊 Retrieved 3769 total active players from database
+2025-06-03 19:25:56,164 - INFO - 📊 Found 13784 valid matches with all players in system
+2025-06-03 19:25:56,164 - INFO - ⚠️  Skipping 0 matches with missing players
+2025-06-03 19:25:56,164 - INFO - ⏰ Using time weighting with 365-day half-life from 2025-06-04
+2025-06-03 19:25:56,164 - INFO - 📊 Example time weights:
+2025-06-03 19:25:56,164 - INFO -    • 7 days ago: 0.987 weight
+2025-06-03 19:25:56,164 - INFO -    • 30 days ago: 0.945 weight
+2025-06-03 19:25:56,164 - INFO -    • 90 days ago: 0.843 weight
+2025-06-03 19:25:56,164 - INFO -    • 180 days ago: 0.710 weight
+2025-06-03 19:25:56,164 - INFO -    • 365 days ago: 0.500 weight
+2025-06-03 19:25:56,164 - INFO - 
+🔄 PASS 1/10 starting...
+2025-06-03 19:25:56,172 - INFO -    Pass 1 progress: 1000/13784 (7.3%)
+2025-06-03 19:25:56,180 - INFO -    Pass 1 progress: 2000/13784 (14.5%)
+2025-06-03 19:25:56,190 - INFO -    Pass 1 progress: 3000/13784 (21.8%)
+2025-06-03 19:25:56,199 - INFO -    Pass 1 progress: 4000/13784 (29.0%)
+2025-06-03 19:25:56,207 - INFO -    Pass 1 progress: 5000/13784 (36.3%)
+2025-06-03 19:25:56,216 - INFO -    Pass 1 progress: 6000/13784 (43.5%)
+2025-06-03 19:25:56,225 - INFO -    Pass 1 progress: 7000/13784 (50.8%)
+2025-06-03 19:25:56,233 - INFO -    Pass 1 progress: 8000/13784 (58.0%)
+2025-06-03 19:25:56,241 - INFO -    Pass 1 progress: 9000/13784 (65.3%)
+2025-06-03 19:25:56,248 - INFO -    Pass 1 progress: 10000/13784 (72.5%)
+2025-06-03 19:25:56,256 - INFO -    Pass 1 progress: 11000/13784 (79.8%)
+2025-06-03 19:25:56,264 - INFO -    Pass 1 progress: 12000/13784 (87.1%)
+2025-06-03 19:25:56,271 - INFO -    Pass 1 progress: 13000/13784 (94.3%)
+2025-06-03 19:25:56,277 - INFO - ✅ Pass 1 complete: 13784 matches processed, 0 errors
+2025-06-03 19:25:56,277 - INFO - 
+🔄 PASS 2/10 starting...
+2025-06-03 19:25:56,285 - INFO -    Pass 2 progress: 1000/13784 (7.3%)
+2025-06-03 19:25:56,293 - INFO -    Pass 2 progress: 2000/13784 (14.5%)
+2025-06-03 19:25:56,300 - INFO -    Pass 2 progress: 3000/13784 (21.8%)
+2025-06-03 19:25:56,308 - INFO -    Pass 2 progress: 4000/13784 (29.0%)
+2025-06-03 19:25:56,316 - INFO -    Pass 2 progress: 5000/13784 (36.3%)
+2025-06-03 19:25:56,323 - INFO -    Pass 2 progress: 6000/13784 (43.5%)
+2025-06-03 19:25:56,331 - INFO -    Pass 2 progress: 7000/13784 (50.8%)
+2025-06-03 19:25:56,338 - INFO -    Pass 2 progress: 8000/13784 (58.0%)
+2025-06-03 19:25:56,346 - INFO -    Pass 2 progress: 9000/13784 (65.3%)
+2025-06-03 19:25:56,353 - INFO -    Pass 2 progress: 10000/13784 (72.5%)
+2025-06-03 19:25:56,361 - INFO -    Pass 2 progress: 11000/13784 (79.8%)
+2025-06-03 19:25:56,369 - INFO -    Pass 2 progress: 12000/13784 (87.1%)
+2025-06-03 19:25:56,376 - INFO -    Pass 2 progress: 13000/13784 (94.3%)
+2025-06-03 19:25:56,382 - INFO - ✅ Pass 2 complete: 13784 matches processed, 0 errors
+2025-06-03 19:25:56,383 - INFO - 
+🔄 PASS 3/10 starting...
+2025-06-03 19:25:56,390 - INFO -    Pass 3 progress: 1000/13784 (7.3%)
+2025-06-03 19:25:56,398 - INFO -    Pass 3 progress: 2000/13784 (14.5%)
+2025-06-03 19:25:56,405 - INFO -    Pass 3 progress: 3000/13784 (21.8%)
+2025-06-03 19:25:56,413 - INFO -    Pass 3 progress: 4000/13784 (29.0%)
+2025-06-03 19:25:56,421 - INFO -    Pass 3 progress: 5000/13784 (36.3%)
+2025-06-03 19:25:56,428 - INFO -    Pass 3 progress: 6000/13784 (43.5%)
+2025-06-03 19:25:56,436 - INFO -    Pass 3 progress: 7000/13784 (50.8%)
+2025-06-03 19:25:56,444 - INFO -    Pass 3 progress: 8000/13784 (58.0%)
+2025-06-03 19:25:56,451 - INFO -    Pass 3 progress: 9000/13784 (65.3%)
+2025-06-03 19:25:56,458 - INFO -    Pass 3 progress: 10000/13784 (72.5%)
+2025-06-03 19:25:56,466 - INFO -    Pass 3 progress: 11000/13784 (79.8%)
+2025-06-03 19:25:56,474 - INFO -    Pass 3 progress: 12000/13784 (87.1%)
+2025-06-03 19:25:56,481 - INFO -    Pass 3 progress: 13000/13784 (94.3%)
+2025-06-03 19:25:56,487 - INFO - ✅ Pass 3 complete: 13784 matches processed, 0 errors
+2025-06-03 19:25:56,487 - INFO - 
+🔄 PASS 4/10 starting...
+2025-06-03 19:25:56,495 - INFO -    Pass 4 progress: 1000/13784 (7.3%)
+2025-06-03 19:25:56,503 - INFO -    Pass 4 progress: 2000/13784 (14.5%)
+2025-06-03 19:25:56,510 - INFO -    Pass 4 progress: 3000/13784 (21.8%)
+2025-06-03 19:25:56,518 - INFO -    Pass 4 progress: 4000/13784 (29.0%)
+2025-06-03 19:25:56,525 - INFO -    Pass 4 progress: 5000/13784 (36.3%)
+2025-06-03 19:25:56,533 - INFO -    Pass 4 progress: 6000/13784 (43.5%)
+2025-06-03 19:25:56,540 - INFO -    Pass 4 progress: 7000/13784 (50.8%)
+2025-06-03 19:25:56,547 - INFO -    Pass 4 progress: 8000/13784 (58.0%)
+2025-06-03 19:25:56,555 - INFO -    Pass 4 progress: 9000/13784 (65.3%)
+2025-06-03 19:25:56,562 - INFO -    Pass 4 progress: 10000/13784 (72.5%)
+2025-06-03 19:25:56,570 - INFO -    Pass 4 progress: 11000/13784 (79.8%)
+2025-06-03 19:25:56,578 - INFO -    Pass 4 progress: 12000/13784 (87.1%)
+2025-06-03 19:25:56,585 - INFO -    Pass 4 progress: 13000/13784 (94.3%)
+2025-06-03 19:25:56,591 - INFO - ✅ Pass 4 complete: 13784 matches processed, 0 errors
+2025-06-03 19:25:56,591 - INFO - 
+🔄 PASS 5/10 starting...
+2025-06-03 19:25:56,599 - INFO -    Pass 5 progress: 1000/13784 (7.3%)
+2025-06-03 19:25:56,606 - INFO -    Pass 5 progress: 2000/13784 (14.5%)
+2025-06-03 19:25:56,614 - INFO -    Pass 5 progress: 3000/13784 (21.8%)
+2025-06-03 19:25:56,622 - INFO -    Pass 5 progress: 4000/13784 (29.0%)
+2025-06-03 19:25:56,629 - INFO -    Pass 5 progress: 5000/13784 (36.3%)
+2025-06-03 19:25:56,637 - INFO -    Pass 5 progress: 6000/13784 (43.5%)
+2025-06-03 19:25:56,644 - INFO -    Pass 5 progress: 7000/13784 (50.8%)
+2025-06-03 19:25:56,652 - INFO -    Pass 5 progress: 8000/13784 (58.0%)
+2025-06-03 19:25:56,659 - INFO -    Pass 5 progress: 9000/13784 (65.3%)
+2025-06-03 19:25:56,667 - INFO -    Pass 5 progress: 10000/13784 (72.5%)
+2025-06-03 19:25:56,675 - INFO -    Pass 5 progress: 11000/13784 (79.8%)
+2025-06-03 19:25:56,682 - INFO -    Pass 5 progress: 12000/13784 (87.1%)
+2025-06-03 19:25:56,690 - INFO -    Pass 5 progress: 13000/13784 (94.3%)
+2025-06-03 19:25:56,696 - INFO - ✅ Pass 5 complete: 13784 matches processed, 0 errors
+2025-06-03 19:25:56,696 - INFO - 
+🔄 PASS 6/10 starting...
+2025-06-03 19:25:56,704 - INFO -    Pass 6 progress: 1000/13784 (7.3%)
+2025-06-03 19:25:56,712 - INFO -    Pass 6 progress: 2000/13784 (14.5%)
+2025-06-03 19:25:56,719 - INFO -    Pass 6 progress: 3000/13784 (21.8%)
+2025-06-03 19:25:56,727 - INFO -    Pass 6 progress: 4000/13784 (29.0%)
+2025-06-03 19:25:56,734 - INFO -    Pass 6 progress: 5000/13784 (36.3%)
+2025-06-03 19:25:56,741 - INFO -    Pass 6 progress: 6000/13784 (43.5%)
+2025-06-03 19:25:56,749 - INFO -    Pass 6 progress: 7000/13784 (50.8%)
+2025-06-03 19:25:56,757 - INFO -    Pass 6 progress: 8000/13784 (58.0%)
+2025-06-03 19:25:56,764 - INFO -    Pass 6 progress: 9000/13784 (65.3%)
+2025-06-03 19:25:56,772 - INFO -    Pass 6 progress: 10000/13784 (72.5%)
+2025-06-03 19:25:56,780 - INFO -    Pass 6 progress: 11000/13784 (79.8%)
+2025-06-03 19:25:56,788 - INFO -    Pass 6 progress: 12000/13784 (87.1%)
+2025-06-03 19:25:56,796 - INFO -    Pass 6 progress: 13000/13784 (94.3%)
+2025-06-03 19:25:56,802 - INFO - ✅ Pass 6 complete: 13784 matches processed, 0 errors
+2025-06-03 19:25:56,802 - INFO - 
+🔄 PASS 7/10 starting...
+2025-06-03 19:25:56,810 - INFO -    Pass 7 progress: 1000/13784 (7.3%)
+2025-06-03 19:25:56,817 - INFO -    Pass 7 progress: 2000/13784 (14.5%)
+2025-06-03 19:25:56,825 - INFO -    Pass 7 progress: 3000/13784 (21.8%)
+2025-06-03 19:25:56,832 - INFO -    Pass 7 progress: 4000/13784 (29.0%)
+2025-06-03 19:25:56,839 - INFO -    Pass 7 progress: 5000/13784 (36.3%)
+2025-06-03 19:25:56,847 - INFO -    Pass 7 progress: 6000/13784 (43.5%)
+2025-06-03 19:25:56,855 - INFO -    Pass 7 progress: 7000/13784 (50.8%)
+2025-06-03 19:25:56,862 - INFO -    Pass 7 progress: 8000/13784 (58.0%)
+2025-06-03 19:25:56,870 - INFO -    Pass 7 progress: 9000/13784 (65.3%)
+2025-06-03 19:25:56,878 - INFO -    Pass 7 progress: 10000/13784 (72.5%)
+2025-06-03 19:25:56,885 - INFO -    Pass 7 progress: 11000/13784 (79.8%)
+2025-06-03 19:25:56,893 - INFO -    Pass 7 progress: 12000/13784 (87.1%)
+2025-06-03 19:25:56,900 - INFO -    Pass 7 progress: 13000/13784 (94.3%)
+2025-06-03 19:25:56,906 - INFO - ✅ Pass 7 complete: 13784 matches processed, 0 errors
+2025-06-03 19:25:56,906 - INFO - 
+🔄 PASS 8/10 starting...
+2025-06-03 19:25:56,914 - INFO -    Pass 8 progress: 1000/13784 (7.3%)
+2025-06-03 19:25:56,921 - INFO -    Pass 8 progress: 2000/13784 (14.5%)
+2025-06-03 19:25:56,929 - INFO -    Pass 8 progress: 3000/13784 (21.8%)
+2025-06-03 19:25:56,936 - INFO -    Pass 8 progress: 4000/13784 (29.0%)
+2025-06-03 19:25:56,943 - INFO -    Pass 8 progress: 5000/13784 (36.3%)
+2025-06-03 19:25:56,951 - INFO -    Pass 8 progress: 6000/13784 (43.5%)
+2025-06-03 19:25:56,959 - INFO -    Pass 8 progress: 7000/13784 (50.8%)
+2025-06-03 19:25:56,966 - INFO -    Pass 8 progress: 8000/13784 (58.0%)
+2025-06-03 19:25:56,974 - INFO -    Pass 8 progress: 9000/13784 (65.3%)
+2025-06-03 19:25:56,981 - INFO -    Pass 8 progress: 10000/13784 (72.5%)
+2025-06-03 19:25:56,989 - INFO -    Pass 8 progress: 11000/13784 (79.8%)
+2025-06-03 19:25:56,996 - INFO -    Pass 8 progress: 12000/13784 (87.1%)
+2025-06-03 19:25:57,004 - INFO -    Pass 8 progress: 13000/13784 (94.3%)
+2025-06-03 19:25:57,010 - INFO - ✅ Pass 8 complete: 13784 matches processed, 0 errors
+2025-06-03 19:25:57,010 - INFO - 
+🔄 PASS 9/10 starting...
+2025-06-03 19:25:57,017 - INFO -    Pass 9 progress: 1000/13784 (7.3%)
+2025-06-03 19:25:57,025 - INFO -    Pass 9 progress: 2000/13784 (14.5%)
+2025-06-03 19:25:57,033 - INFO -    Pass 9 progress: 3000/13784 (21.8%)
+2025-06-03 19:25:57,040 - INFO -    Pass 9 progress: 4000/13784 (29.0%)
+2025-06-03 19:25:57,047 - INFO -    Pass 9 progress: 5000/13784 (36.3%)
+2025-06-03 19:25:57,055 - INFO -    Pass 9 progress: 6000/13784 (43.5%)
+2025-06-03 19:25:57,062 - INFO -    Pass 9 progress: 7000/13784 (50.8%)
+2025-06-03 19:25:57,070 - INFO -    Pass 9 progress: 8000/13784 (58.0%)
+2025-06-03 19:25:57,078 - INFO -    Pass 9 progress: 9000/13784 (65.3%)
+2025-06-03 19:25:57,085 - INFO -    Pass 9 progress: 10000/13784 (72.5%)
+2025-06-03 19:25:57,093 - INFO -    Pass 9 progress: 11000/13784 (79.8%)
+2025-06-03 19:25:57,100 - INFO -    Pass 9 progress: 12000/13784 (87.1%)
+2025-06-03 19:25:57,108 - INFO -    Pass 9 progress: 13000/13784 (94.3%)
+2025-06-03 19:25:57,114 - INFO - ✅ Pass 9 complete: 13784 matches processed, 0 errors
+2025-06-03 19:25:57,114 - INFO - 
+🔄 PASS 10/10 starting...
+2025-06-03 19:25:57,122 - INFO -    Pass 10 progress: 1000/13784 (7.3%)
+2025-06-03 19:25:57,130 - INFO -    Pass 10 progress: 2000/13784 (14.5%)
+2025-06-03 19:25:57,137 - INFO -    Pass 10 progress: 3000/13784 (21.8%)
+2025-06-03 19:25:57,144 - INFO -    Pass 10 progress: 4000/13784 (29.0%)
+2025-06-03 19:25:57,152 - INFO -    Pass 10 progress: 5000/13784 (36.3%)
+2025-06-03 19:25:57,159 - INFO -    Pass 10 progress: 6000/13784 (43.5%)
+2025-06-03 19:25:57,167 - INFO -    Pass 10 progress: 7000/13784 (50.8%)
+2025-06-03 19:25:57,174 - INFO -    Pass 10 progress: 8000/13784 (58.0%)
+2025-06-03 19:25:57,181 - INFO -    Pass 10 progress: 9000/13784 (65.3%)
+2025-06-03 19:25:57,189 - INFO -    Pass 10 progress: 10000/13784 (72.5%)
+2025-06-03 19:25:57,196 - INFO -    Pass 10 progress: 11000/13784 (79.8%)
+2025-06-03 19:25:57,204 - INFO -    Pass 10 progress: 12000/13784 (87.1%)
+2025-06-03 19:25:57,211 - INFO -    Pass 10 progress: 13000/13784 (94.3%)
+2025-06-03 19:25:57,218 - INFO - ✅ Pass 10 complete: 13784 matches processed, 0 errors
+2025-06-03 19:25:57,218 - INFO - 
+💾 Saving final ratings to database...
+2025-06-03 19:25:57,218 - INFO - 💾 Updating all player ratings in database...
+2025-06-03 19:25:57,220 - INFO - 💾 Saving ratings to calculated_ratings.csv...
+2025-06-03 19:25:57,607 - INFO - ✅ Saved 3769 ratings to calculated_ratings.csv
+2025-06-03 19:25:57,608 - INFO - 🔍 Testing database updates with 5 sample players...
+2025-06-03 19:25:57,608 - INFO -    Updating a032a6d3-8d87-4c66-8048-3e74b08b6468: mens=1500, womens=1653
+2025-06-03 19:25:57,622 - INFO -    ✅ Successfully updated a032a6d3-8d87-4c66-8048-3e74b08b6468
+2025-06-03 19:25:57,622 - INFO -    Updating 06dc7838-f384-4fb9-ab22-60693eb1cfe9: mens=1500, womens=1653
+2025-06-03 19:25:57,633 - INFO -    ✅ Successfully updated 06dc7838-f384-4fb9-ab22-60693eb1cfe9
+2025-06-03 19:25:57,633 - INFO -    Updating 7f2e1f10-2abe-4c3f-97b3-d7446bcf9cfe: mens=1500, womens=1370
+2025-06-03 19:25:57,644 - INFO -    ✅ Successfully updated 7f2e1f10-2abe-4c3f-97b3-d7446bcf9cfe
+2025-06-03 19:25:57,644 - INFO -    Updating 85da1844-f9a7-499f-b381-67af60a66f31: mens=1500, womens=1553
+2025-06-03 19:25:57,655 - INFO -    ✅ Successfully updated 85da1844-f9a7-499f-b381-67af60a66f31
+2025-06-03 19:25:57,655 - INFO -    Updating 72aa7286-0731-4013-aeb0-393bc61fa4b5: mens=1500, womens=1624
+2025-06-03 19:25:57,669 - INFO -    ✅ Successfully updated 72aa7286-0731-4013-aeb0-393bc61fa4b5
+2025-06-03 19:25:57,669 - INFO - 🧪 Sample update test: 5/5 successful
+2025-06-03 19:25:57,669 - INFO - 💾 Proceeding with full database update...
+2025-06-03 19:26:46,216 - INFO - ✅ Database update complete: 3769 success, 0 errors
+2025-06-03 19:26:46,217 - INFO - 
+📈 Pass Summary:
+2025-06-03 19:26:46,217 - INFO -    Pass 1: 13784 matches processed, 0 errors
+2025-06-03 19:26:46,217 - INFO -    Pass 2: 13784 matches processed, 0 errors
+2025-06-03 19:26:46,218 - INFO -    Pass 3: 13784 matches processed, 0 errors
+2025-06-03 19:26:46,218 - INFO -    Pass 4: 13784 matches processed, 0 errors
+2025-06-03 19:26:46,218 - INFO -    Pass 5: 13784 matches processed, 0 errors
+2025-06-03 19:26:46,218 - INFO -    Pass 6: 13784 matches processed, 0 errors
+2025-06-03 19:26:46,218 - INFO -    Pass 7: 13784 matches processed, 0 errors
+2025-06-03 19:26:46,218 - INFO -    Pass 8: 13784 matches processed, 0 errors
+2025-06-03 19:26:46,218 - INFO -    Pass 9: 13784 matches processed, 0 errors
+2025-06-03 19:26:46,219 - INFO -    Pass 10: 13784 matches processed, 0 errors

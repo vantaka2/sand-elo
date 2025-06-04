@@ -1,0 +1,13 @@
+[project]
+name = "cbva-scraper"
+version = "0.1.0"
+description = "CBVA Tournament Data Scraper"
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.3",
+    "playwright>=1.40.0",
+]
+
+[tool.uv]
+dev-dependencies = []

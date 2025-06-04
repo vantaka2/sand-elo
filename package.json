@@ -1,0 +1,24 @@
+{
+  "name": "sand-elo-monorepo",
+  "version": "1.0.0",
+  "description": "Sand volleyball Elo rating system",
+  "private": true,
+  "scripts": {
+    "dev": "cd sand-elo && npm run dev",
+    "build": "cd sand-elo && npm run build",
+    "start": "cd sand-elo && npm run start",
+    "lint": "cd sand-elo && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/sand-elo.git"
+  },
+  "keywords": [
+    "volleyball",
+    "elo",
+    "pwa",
+    "nextjs",
+    "supabase"
+  ],
+  "author": "Keerthan Vantakala"
+}
