@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  // Exclude Supabase Edge Functions from Next.js compilation
+  webpack: (config) => {
+    config.externals = [...(config.externals || []), /supabase\/functions/]
+    return config
+  },
 }
 
 module.exports = withPWA(nextConfig)
