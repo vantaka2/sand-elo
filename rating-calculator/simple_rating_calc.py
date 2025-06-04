@@ -5,6 +5,7 @@ Uses direct HTTP requests for reliable database access
 """
 
 import os
+import sys
 import time
 import requests
 from typing import Dict, List
@@ -33,14 +34,50 @@ logger = logging.getLogger(__name__)
 class RatingCalculator:
     """Rating calculator using direct HTTP requests for reliable access."""
     
-    def __init__(self):
+    def __init__(self, use_production=False):
         """Initialize the calculator."""
-        load_dotenv()
+        # Load environment variables from the Node.js project directory
+        dotenv_path = os.path.join(os.path.dirname(__file__), '..', 'sand-elo', '.env.local')
+        load_dotenv(dotenv_path)
         
-        # Supabase configuration
-        self.base_url = os.getenv('SUPABASE_URL', 'http://127.0.0.1:54321')
-        self.service_key = os.getenv('SUPABASE_SERVICE_ROLE_KEY', 
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU')
+        if use_production:
+            print("🌐 PRODUCTION MODE - Using production database")
+            print("⚠️  WARNING: You are about to calculate ratings in your LIVE production database!")
+            print("   Make sure you have the correct production credentials set.\n")
+            
+            # Use production environment variables
+            self.base_url = os.getenv('NEXT_PUBLIC_SUPABASE_PRODUCTION_URL') or os.getenv('NEXT_PUBLIC_SUPABASE_URL')
+            self.service_key = os.getenv('SUPABASE_PRODUCTION_SERVICE_ROLE_KEY') or os.getenv('SUPABASE_SERVICE_ROLE_KEY')
+            
+            if not self.base_url or '127.0.0.1' in self.base_url or 'localhost' in self.base_url:
+                print("❌ Production URL not found or appears to be local!")
+                print("   Set NEXT_PUBLIC_SUPABASE_PRODUCTION_URL in .env.local")
+                print("   or temporarily update NEXT_PUBLIC_SUPABASE_URL to your production URL")
+                sys.exit(1)
+            
+            if not self.service_key or 'demo' in self.service_key:
+                print("❌ Production service role key not found or appears to be local!")
+                print("   Set SUPABASE_PRODUCTION_SERVICE_ROLE_KEY in .env.local")
+                print("   or temporarily update SUPABASE_SERVICE_ROLE_KEY to your production key")
+                sys.exit(1)
+            
+            print(f"📡 Production URL: {self.base_url}")
+            print("🔑 Using production service role key")
+            print("")
+        else:
+            print("🏠 DEVELOPMENT MODE - Using local database")
+            
+            # Use local development environment variables
+            self.base_url = os.getenv('NEXT_PUBLIC_SUPABASE_URL', 'http://127.0.0.1:54321')
+            self.service_key = os.getenv('SUPABASE_SERVICE_ROLE_KEY', 
+                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU')
+            
+            if not self.base_url or not self.service_key:
+                print("❌ Local Supabase credentials not found in .env.local")
+                sys.exit(1)
+            
+            print(f"📡 Local URL: {self.base_url}")
+            print("")
         
         self.headers = {
             'apikey': self.service_key,
@@ -804,9 +841,19 @@ class RatingCalculator:
 
 def main():
     """Main entry point."""
+    # Check for --production flag
+    use_production = '--production' in sys.argv
+    
+    if len(sys.argv) > 1 and sys.argv[1] not in ['--production']:
+        print("Usage: python simple_rating_calc.py [--production]")
+        print("\nExamples:")
+        print("  Development: python simple_rating_calc.py")
+        print("  Production:  python simple_rating_calc.py --production")
+        return
+    
     print("🏐 Sand Volleyball Rating Calculator (Iterative)\n")
     
-    calc = RatingCalculator()
+    calc = RatingCalculator(use_production=use_production)
     
     # Test connection
     if not calc.test_connection():
