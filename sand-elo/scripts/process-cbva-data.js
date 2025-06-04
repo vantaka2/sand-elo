@@ -5,15 +5,21 @@ const args = process.argv.slice(2)
 const tournamentId = args.find(arg => !arg.startsWith('--'))
 const processAll = args.includes('--all')
 const showStatus = args.includes('--status')
+const isProduction = args.includes('--production')
 
 if (!tournamentId && !processAll && !showStatus) {
-  console.log('Usage: node scripts/process-cbva-data.js <tournament_id>')
-  console.log('       node scripts/process-cbva-data.js --all')
-  console.log('       node scripts/process-cbva-data.js --status')
+  console.log('Usage: node scripts/process-cbva-data.js <tournament_id> [--production]')
+  console.log('       node scripts/process-cbva-data.js --all [--production]')
+  console.log('       node scripts/process-cbva-data.js --status [--production]')
   console.log('\nExamples:')
-  console.log('  Single tournament: node scripts/process-cbva-data.js ULJufjFU')
-  console.log('  All pending:       node scripts/process-cbva-data.js --all')
-  console.log('  Show status:       node scripts/process-cbva-data.js --status')
+  console.log('  Development:')
+  console.log('    Single tournament: node scripts/process-cbva-data.js ULJufjFU')
+  console.log('    All pending:       node scripts/process-cbva-data.js --all')
+  console.log('    Show status:       node scripts/process-cbva-data.js --status')
+  console.log('  Production:')
+  console.log('    Single tournament: node scripts/process-cbva-data.js ULJufjFU --production')
+  console.log('    All pending:       node scripts/process-cbva-data.js --all --production')
+  console.log('    Show status:       node scripts/process-cbva-data.js --status --production')
   process.exit(1)
 }
 
@@ -147,10 +153,49 @@ async function processAllPending(supabase) {
 }
 
 async function main() {
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  )
+  let supabaseUrl, supabaseKey
+  
+  if (isProduction) {
+    console.log('🌐 PRODUCTION MODE - Processing production database')
+    console.log('⚠️  WARNING: You are about to process data in your LIVE production database!')
+    console.log('   Make sure you have the correct production credentials set.\n')
+    
+    // Use production environment variables
+    supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_PRODUCTION_URL || process.env.NEXT_PUBLIC_SUPABASE_URL
+    supabaseKey = process.env.SUPABASE_PRODUCTION_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY
+    
+    if (!supabaseUrl || supabaseUrl.includes('127.0.0.1') || supabaseUrl.includes('localhost')) {
+      console.error('❌ Production URL not found or appears to be local!')
+      console.error('   Set NEXT_PUBLIC_SUPABASE_PRODUCTION_URL in .env.local')
+      console.error('   or temporarily update NEXT_PUBLIC_SUPABASE_URL to your production URL')
+      process.exit(1)
+    }
+    
+    if (!supabaseKey || supabaseKey.includes('demo')) {
+      console.error('❌ Production service role key not found or appears to be local!')
+      console.error('   Set SUPABASE_PRODUCTION_SERVICE_ROLE_KEY in .env.local')
+      console.error('   or temporarily update SUPABASE_SERVICE_ROLE_KEY to your production key')
+      process.exit(1)
+    }
+    
+    console.log(`📡 Production URL: ${supabaseUrl}`)
+    console.log(`🔑 Using production service role key`)
+    console.log('')
+  } else {
+    console.log('🏠 DEVELOPMENT MODE - Processing local database')
+    supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+    
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('❌ Local Supabase credentials not found in .env.local')
+      process.exit(1)
+    }
+    
+    console.log(`📡 Local URL: ${supabaseUrl}`)
+    console.log('')
+  }
+  
+  const supabase = createClient(supabaseUrl, supabaseKey)
   
   if (showStatus) {
     await showImportStatus(supabase)
