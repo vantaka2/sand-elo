@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
-import { MatchDetails } from '@/types/database'
+import { MatchDetail } from '@/types/database'
 
 export default function EditMatchPage() {
   const { id } = useParams()
@@ -11,7 +11,7 @@ export default function EditMatchPage() {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [deleting, setDeleting] = useState(false)
-  const [match, setMatch] = useState<MatchDetails | null>(null)
+  const [match, setMatch] = useState<MatchDetail | null>(null)
   const [team1Score, setTeam1Score] = useState('')
   const [team2Score, setTeam2Score] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -74,6 +74,9 @@ export default function EditMatchPage() {
 
   const handleSave = async () => {
     if (!match || !currentUserId) return
+    
+    // TypeScript assertion: we know match is not null after the check above
+    const currentMatch = match as MatchDetail
 
     const score1 = parseInt(team1Score)
     const score2 = parseInt(team2Score)
@@ -97,7 +100,7 @@ export default function EditMatchPage() {
     try {
       // Call the backend to update the match
       const { data, error } = await supabase.rpc('update_match_score', {
-        match_id_input: match.id,
+        match_id_input: currentMatch.id,
         new_team1_score: score1,
         new_team2_score: score2,
         new_winning_team: newWinningTeam
@@ -111,7 +114,7 @@ export default function EditMatchPage() {
         setSuccess('Match updated successfully!')
         // Update local state
         setMatch({
-          ...match,
+          ...currentMatch,
           team1_score: score1,
           team2_score: score2,
           winning_team: newWinningTeam
@@ -131,6 +134,9 @@ export default function EditMatchPage() {
 
   const handleDelete = async () => {
     if (!match || !currentUserId) return
+    
+    // TypeScript assertion: we know match is not null after the check above
+    const currentMatch = match as MatchDetail
 
     const confirmed = window.confirm('Are you sure you want to delete this match? This action cannot be undone.')
     if (!confirmed) return
@@ -141,7 +147,7 @@ export default function EditMatchPage() {
 
     try {
       const { data, error } = await supabase.rpc('soft_delete_match', {
-        match_id_input: match.id
+        match_id_input: currentMatch.id
       })
 
       if (error) {
@@ -233,7 +239,7 @@ export default function EditMatchPage() {
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
               <span className="text-gray-600">Date:</span>
-              <span className="text-gray-900">{new Date(match.played_at).toLocaleDateString()}</span>
+              <span className="text-gray-900">{match.played_at ? new Date(match.played_at).toLocaleDateString() : 'Unknown'}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Type:</span>

@@ -1,13 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { MatchDetails } from '@/types/database'
+import { MatchDetail } from '@/types/database'
 
 interface MatchHistoryProps {
   userId: string
   viewingUserId?: string // The user whose profile we're viewing (for player pages)
   viewingUserProfile?: { first_name: string; last_name: string } // Profile of the user we're viewing
-  initialMatches: MatchDetails[]
+  initialMatches: MatchDetail[]
   initialRatingChanges: Record<string, number>
   showEditControls?: boolean // Whether to show edit controls (only for own matches)
 }
@@ -26,12 +26,12 @@ export default function MatchHistory({
   const targetUserId = viewingUserId || userId // User whose matches we're displaying
 
   // Helper function to format player names
-  const getPlayerName = (firstName: string, lastName: string) => {
-    return `${firstName} ${lastName}`.trim()
+  const getPlayerName = (firstName: string | null, lastName: string | null) => {
+    return `${firstName || ''} ${lastName || ''}`.trim() || 'Unknown Player'
   }
 
 
-  const getMatchPlayers = (match: MatchDetails) => {
+  const getMatchPlayers = (match: MatchDetail) => {
     const isTeam1 = match.team1_player1_id === targetUserId || match.team1_player2_id === targetUserId
     const isWin = (isTeam1 && match.winning_team === 1) || (!isTeam1 && match.winning_team === 2)
     const playerTeamScore = isTeam1 ? match.team1_score : match.team2_score
@@ -79,7 +79,7 @@ export default function MatchHistory({
     <div className="space-y-3">
       {matches.map((match) => {
         const { isWin, teammate, opponent1, opponent2 } = getMatchPlayers(match)
-        const ratingChange = ratingChanges[match.id]
+        const ratingChange = match.id ? ratingChanges[match.id] : undefined
         // Allow editing if user created the match, OR if no creator is set and user is a player
         const isCreator = match.created_by === userId
         const isPlayerInMatch = match.team1_player1_id === userId || 
@@ -148,7 +148,7 @@ export default function MatchHistory({
             <div className="flex justify-between items-start">
               <div>
                 <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <span>{new Date(match.played_at).toLocaleDateString()}</span>
+                  <span>{match.played_at ? new Date(match.played_at).toLocaleDateString() : 'Unknown date'}</span>
                   {match.match_source === 'cbva_import' && (
                     <>
                       <span>•</span>

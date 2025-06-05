@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
-import { Profile, MatchDetails, TeamRating, TeamRatingHistory } from '@/types/database'
+import { Profile, MatchDetail, TeamRating, TeamRatingHistory } from '@/types/database'
 import BottomNav from '@/components/BottomNav'
 import MatchHistory from '@/components/MatchHistory'
 import RatingInfo from '@/components/RatingInfo'
@@ -14,7 +14,7 @@ export default function TeamDetailPage() {
   const [currentUser, setCurrentUser] = useState<string | null>(null)
   const [player1Profile, setPlayer1Profile] = useState<Profile | null>(null)
   const [player2Profile, setPlayer2Profile] = useState<Profile | null>(null)
-  const [matches, setMatches] = useState<MatchDetails[]>([])
+  const [matches, setMatches] = useState<MatchDetail[]>([])
   const [ratingChanges, setRatingChanges] = useState<Record<string, number>>({})
   const [loading, setLoading] = useState(true)
   const [wins, setWins] = useState(0)
