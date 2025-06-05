@@ -128,7 +128,7 @@ export default function ProfilePage() {
       setMessage({ type: 'error', text: error.message })
     } else {
       setMessage({ type: 'success', text: 'Profile updated successfully!' })
-      setProfile({ ...profile, first_name: firstName, last_name: lastName, gender: gender || null })
+      setProfile({ ...profile, first_name: firstName, last_name: lastName, gender: gender || 'unknown' })
     }
     setSaving(false)
   }

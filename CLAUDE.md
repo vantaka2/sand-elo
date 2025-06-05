@@ -33,6 +33,9 @@ cd sand-elo && npm run lint
 # Type checking
 cd sand-elo && npm run type-check
 
+# Generate TypeScript types from database schema
+cd sand-elo && npm run db:types
+
 # Local database operations
 cd sand-elo && supabase status
 cd sand-elo && supabase stop

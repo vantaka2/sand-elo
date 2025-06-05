@@ -26,8 +26,8 @@ export default function MatchHistory({
   const targetUserId = viewingUserId || userId // User whose matches we're displaying
 
   // Helper function to format player names
-  const getPlayerName = (firstName: string, lastName: string) => {
-    return `${firstName} ${lastName}`.trim()
+  const getPlayerName = (firstName: string | null, lastName: string | null) => {
+    return `${firstName || ''} ${lastName || ''}`.trim() || 'Unknown Player'
   }
 
 
@@ -79,7 +79,7 @@ export default function MatchHistory({
     <div className="space-y-3">
       {matches.map((match) => {
         const { isWin, teammate, opponent1, opponent2 } = getMatchPlayers(match)
-        const ratingChange = ratingChanges[match.id]
+        const ratingChange = match.id ? ratingChanges[match.id] : undefined
         // Allow editing if user created the match, OR if no creator is set and user is a player
         const isCreator = match.created_by === userId
         const isPlayerInMatch = match.team1_player1_id === userId || 
@@ -148,7 +148,7 @@ export default function MatchHistory({
             <div className="flex justify-between items-start">
               <div>
                 <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <span>{new Date(match.played_at).toLocaleDateString()}</span>
+                  <span>{match.played_at ? new Date(match.played_at).toLocaleDateString() : 'Unknown date'}</span>
                   {match.match_source === 'cbva_import' && (
                     <>
                       <span>•</span>

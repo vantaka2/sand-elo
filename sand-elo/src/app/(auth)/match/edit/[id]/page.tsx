@@ -233,7 +233,7 @@ export default function EditMatchPage() {
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
               <span className="text-gray-600">Date:</span>
-              <span className="text-gray-900">{new Date(match.played_at).toLocaleDateString()}</span>
+              <span className="text-gray-900">{match.played_at ? new Date(match.played_at).toLocaleDateString() : 'Unknown'}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Type:</span>

@@ -15,6 +15,7 @@ type PlayerStats = Profile & {
   facedUser: boolean
   isCBVAPlayer: boolean
   isSandScorePlayer: boolean
+  rating: number
   ratingDeviation: number
   confidenceLevel: number
 }
@@ -281,7 +282,7 @@ export default function StandingsPage() {
         console.log(`Removed ${stats.length - uniqueStats.length} duplicate players from search list`)
       }
       
-      setAllPlayerStats(uniqueStats)
+      setAllPlayerStats(uniqueStats as PlayerStats[])
 
       // Apply faced filter (only for authenticated users)
       let filteredStats = stats
@@ -346,7 +347,7 @@ export default function StandingsPage() {
         console.log('Duplicate players removed:', duplicates.map(p => ({ id: p.id, name: `${p.first_name} ${p.last_name}` })))
       }
       
-      setPlayerStats(uniqueFilteredStats)
+      setPlayerStats(uniqueFilteredStats as PlayerStats[])
       
       // TODO: Implement efficient team stats using database view/function
       // For now, just set empty array to avoid the expensive calculation
