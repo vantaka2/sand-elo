@@ -15,7 +15,7 @@ This file contains important context for Claude Code when working on this projec
 # Start local Supabase (do this first)
 cd sand-elo && supabase start
 
-# Development server
+# Development server (auto-generates types)
 cd sand-elo && npm run dev
 
 # Database migrations (LOCAL ONLY)
@@ -33,7 +33,10 @@ cd sand-elo && npm run lint
 # Type checking
 cd sand-elo && npm run type-check
 
-# Generate TypeScript types from database schema
+# Build (auto-generates types)
+cd sand-elo && npm run build
+
+# Generate TypeScript types manually
 cd sand-elo && npm run db:types
 
 # Local database operations
@@ -41,29 +44,25 @@ cd sand-elo && supabase status
 cd sand-elo && supabase stop
 cd sand-elo && supabase logs
 
-# Import CBVA tournament data
+# CBVA tournament data scraping
 cd cbva-scraper && python cbva_scraper.py <tournament_id>
-
-# Import tournament data (defaults to development)
-cd sand-elo && node scripts/import-cbva-tournament.js ../cbva-scraper/data/<tournament_id>/<tournament_id>.json
-
-# Import tournament data to production (via Edge Function)
-cd sand-elo && supabase functions deploy import-tournament  # Deploy function first
-cd sand-elo && node scripts/import-cbva-tournament.js ../cbva-scraper/data/<tournament_id>/<tournament_id>.json --production
 ```
 
 ## Code Style
-- Use TypeScript strictly
+- Use TypeScript strictly with generated types from `src/types/supabase.ts`
 - Follow existing component patterns
 - Keep components in src/components
 - Use Tailwind classes for styling
 - No inline styles unless absolutely necessary
 
-## Database Schema
-- profiles: User information and ratings
-- matches: Game records
-- rating_history: Elo rating changes
-- All migrations in sand-elo/supabase/migrations/
+## Database Schema (Key Tables)
+- **profiles**: User information and Glicko ratings (mens/womens)
+- **matches**: Game records with soft delete support
+- **player_rating_history**: Glicko rating snapshots over time
+- **team_ratings**: Team-specific ratings with synergy calculations
+- **team_rating_history**: Team rating evolution
+- **cbva_tournaments/matches/players**: CBVA import staging tables
+- All migrations in `sand-elo/supabase/migrations/`
 
 ## Account Linking System
 The app supports three types of accounts with linking capabilities:
@@ -102,31 +101,57 @@ The app supports three types of accounts with linking capabilities:
 - `search_temp_accounts()`: Find temp accounts to claim  
 - `link_temp_account()`: Link temp account to real user
 
-**Note**: Account linking now properly transfers:
+**Note**: Account linking properly transfers:
 - All matches (updates player IDs in match records)
-- Rating history records
+- Player rating history records
 - Team ratings and team rating history
 - Match counts (mens_matches_played, womens_matches_played)
 
 ## Tournament Data Import
-**Development (default):**
-- Direct database access with service role key
-- Usage: `node scripts/import-cbva-tournament.js path/to/tournament.json`
+**Current Process (Two-Stage Approach):**
 
-**Production:**
-- Uses Edge Function `import-tournament` via HTTP endpoint
-- Deploy Edge Function first: `supabase functions deploy import-tournament`
-- Import with: `node scripts/import-cbva-tournament.js path/to/tournament.json --production`
-- Handles auth user creation and rating calculations via Edge Function
+### Stage 1: Load Tournament Data
+```bash
+# Single tournament (development)
+cd sand-elo && node scripts/stage-cbva-data.js ../cbva-scraper/data/<gender>/<division>/<tournament_id>.json
+
+# Single tournament (production)
+cd sand-elo && node scripts/stage-cbva-data.js ../cbva-scraper/data/<gender>/<division>/<tournament_id>.json --production
+
+# All tournaments at once
+cd sand-elo && node scripts/stage-cbva-data.js --all [--production]
+```
+
+### Stage 2: Process Staged Data
+```bash
+# Process single tournament
+cd sand-elo && node scripts/process-cbva-data.js <tournament_id> [--production]
+
+# Process all pending tournaments
+cd sand-elo && node scripts/process-cbva-data.js --all [--production]
+
+# Check import status
+cd sand-elo && node scripts/process-cbva-data.js --status [--production]
+```
+
+
+## TypeScript Types
+- **Auto-generated during build/dev** from Supabase schema
+- Generated file: `src/types/database.generated.ts` (includes fallback for deployments)
+- Helper types: `src/types/supabase.ts` with convenient exports
+- Production builds generate types from production database
+- Development uses local database for type generation
+- Uses proper type names: `MatchDetail`, `PlayerRatingHistory`, etc.
 
 ## Important Notes
 - Always run lint before committing
 - Test on mobile for PWA features
 - Keep bundle size small for PWA performance
+- Use generated types from `@/types/supabase` or `@/types/database`
 
 ## CRITICAL: Production Database Rules
 - ❌ NEVER use `supabase db push` to production
 - ❌ NEVER modify production database directly via CLI
 - ✅ ALL production migrations happen via GitHub integration
 - ✅ Always test migrations locally first with `supabase db reset`
-- ✅ See PRODUCTION_CLEANUP.md for full workflow
+- ✅ Use staging approach for tournament data imports

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
-import { MatchDetails } from '@/types/database'
+import { MatchDetail } from '@/types/database'
 
 export default function EditMatchPage() {
   const { id } = useParams()
@@ -11,7 +11,7 @@ export default function EditMatchPage() {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [deleting, setDeleting] = useState(false)
-  const [match, setMatch] = useState<MatchDetails | null>(null)
+  const [match, setMatch] = useState<MatchDetail | null>(null)
   const [team1Score, setTeam1Score] = useState('')
   const [team2Score, setTeam2Score] = useState('')
   const [error, setError] = useState<string | null>(null)

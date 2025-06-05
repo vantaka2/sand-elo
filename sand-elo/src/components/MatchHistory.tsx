@@ -1,13 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { MatchDetails } from '@/types/database'
+import { MatchDetail } from '@/types/database'
 
 interface MatchHistoryProps {
   userId: string
   viewingUserId?: string // The user whose profile we're viewing (for player pages)
   viewingUserProfile?: { first_name: string; last_name: string } // Profile of the user we're viewing
-  initialMatches: MatchDetails[]
+  initialMatches: MatchDetail[]
   initialRatingChanges: Record<string, number>
   showEditControls?: boolean // Whether to show edit controls (only for own matches)
 }
@@ -31,7 +31,7 @@ export default function MatchHistory({
   }
 
 
-  const getMatchPlayers = (match: MatchDetails) => {
+  const getMatchPlayers = (match: MatchDetail) => {
     const isTeam1 = match.team1_player1_id === targetUserId || match.team1_player2_id === targetUserId
     const isWin = (isTeam1 && match.winning_team === 1) || (!isTeam1 && match.winning_team === 2)
     const playerTeamScore = isTeam1 ? match.team1_score : match.team2_score

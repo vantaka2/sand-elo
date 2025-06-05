@@ -45,6 +45,3 @@ supabase/.branches
 supabase/.temp
 supabase/.env
 supabase/.env.local
-
-# Generated files
-src/types/database.generated.ts
