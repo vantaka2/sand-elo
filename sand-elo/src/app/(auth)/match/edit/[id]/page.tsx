@@ -74,6 +74,9 @@ export default function EditMatchPage() {
 
   const handleSave = async () => {
     if (!match || !currentUserId) return
+    
+    // TypeScript assertion: we know match is not null after the check above
+    const currentMatch = match as MatchDetail
 
     const score1 = parseInt(team1Score)
     const score2 = parseInt(team2Score)
@@ -97,7 +100,7 @@ export default function EditMatchPage() {
     try {
       // Call the backend to update the match
       const { data, error } = await supabase.rpc('update_match_score', {
-        match_id_input: match.id,
+        match_id_input: currentMatch.id,
         new_team1_score: score1,
         new_team2_score: score2,
         new_winning_team: newWinningTeam
@@ -111,7 +114,7 @@ export default function EditMatchPage() {
         setSuccess('Match updated successfully!')
         // Update local state
         setMatch({
-          ...match,
+          ...currentMatch,
           team1_score: score1,
           team2_score: score2,
           winning_team: newWinningTeam
@@ -131,6 +134,9 @@ export default function EditMatchPage() {
 
   const handleDelete = async () => {
     if (!match || !currentUserId) return
+    
+    // TypeScript assertion: we know match is not null after the check above
+    const currentMatch = match as MatchDetail
 
     const confirmed = window.confirm('Are you sure you want to delete this match? This action cannot be undone.')
     if (!confirmed) return
@@ -141,7 +147,7 @@ export default function EditMatchPage() {
 
     try {
       const { data, error } = await supabase.rpc('soft_delete_match', {
-        match_id_input: match.id
+        match_id_input: currentMatch.id
       })
 
       if (error) {

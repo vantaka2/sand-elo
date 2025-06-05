@@ -36,8 +36,9 @@ cd sand-elo && npm run type-check
 # Build (auto-generates types)
 cd sand-elo && npm run build
 
-# Generate TypeScript types manually
+# Generate TypeScript types manually (after schema changes)
 cd sand-elo && npm run db:types
+# Then commit the updated database.generated.ts file
 
 # Local database operations
 cd sand-elo && supabase status
@@ -46,6 +47,9 @@ cd sand-elo && supabase logs
 
 # CBVA tournament data scraping
 cd cbva-scraper && python cbva_scraper.py <tournament_id>
+
+# Rating recalculation (if needed)
+cd rating-calculator && python simple_rating_calc.py [--production]
 ```
 
 ## Code Style
@@ -136,12 +140,51 @@ cd sand-elo && node scripts/process-cbva-data.js --status [--production]
 
 
 ## TypeScript Types
-- **Auto-generated during build/dev** from Supabase schema
-- Generated file: `src/types/database.generated.ts` (includes fallback for deployments)
+- **Auto-generated from Supabase schema** during development and production builds
+- Generated file: `src/types/database.generated.ts` (committed as fallback)
 - Helper types: `src/types/supabase.ts` with convenient exports
-- Production builds generate types from production database
-- Development uses local database for type generation
+- **Development**: Generate from local database when running `npm run dev`
+- **Production**: Generate from production database if `SUPABASE_ACCESS_TOKEN` is configured
 - Uses proper type names: `MatchDetail`, `PlayerRatingHistory`, etc.
+
+### **Production Type Generation Setup (Optional)**
+To enable automatic type generation during Vercel deployments:
+
+1. **Generate Supabase access token locally:**
+   ```bash
+   supabase auth login
+   cat ~/.supabase/access-token
+   ```
+
+2. **Add to Vercel environment variables:**
+   - Go to Vercel Dashboard → Project → Settings → Environment Variables
+   - Add `SUPABASE_ACCESS_TOKEN` with the token value
+   - Set for "Production" environment
+
+3. **Benefits:**
+   - Types always match production database schema
+   - Automatic updates when schema changes
+   - No need to manually commit type changes
+
+**Note**: If not configured, builds use committed fallback types (still works perfectly)
+
+## Available Scripts
+All scripts are located in `sand-elo/scripts/` and should be run from the `sand-elo` directory:
+
+### **Tournament Data Management**
+- `stage-cbva-data.js` - Stage 1: Load tournament data into staging tables
+- `process-cbva-data.js` - Stage 2: Process staged data into core tables  
+- `quick-import-all.js` - Convenience script: stage + process + status for all tournaments
+
+### **Rating System**
+- **Automatic**: Ratings calculated via PostgreSQL triggers when matches are inserted
+- **Manual recalculation**: Use Python calculator in `rating-calculator/` directory:
+  ```bash
+  cd rating-calculator && python simple_rating_calc.py [--production]
+  ```
+
+### **Development Tools**
+- `generate-types.js` - Generate TypeScript types from Supabase schema (auto-runs during build/dev)
 
 ## Important Notes
 - Always run lint before committing
